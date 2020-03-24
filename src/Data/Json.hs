@@ -70,8 +70,8 @@ type ErrMsg = String
 
 safeRead :: Read a => String -> Either ErrMsg a
 safeRead s = case reads s of
-	      [(x,"")] -> Right x
-	      _        -> Left $ "Read error: " ++ s
+        [(x,"")] -> Right x
+        _        -> Left $ "Read error: " ++ s
 
 fromTree :: (Json repr) => Tree -> Either ErrMsg repr
 fromTree (Node "Str" [Leaf s]) = Right $ str s
